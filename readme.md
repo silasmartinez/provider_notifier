@@ -4,7 +4,7 @@
 ### TLDR
 This document is a discussion of the design decisions reached during docussions on Thursday. It identifies two key models (**charting element** and **notification**), and offers simplified defintions of those models, and some discussion of dependencies involved.
 
-Code in this repo includes the generation of a POC what I judge to be the most interesting structure in play for this solution, the **list of notification elements**, and associated tests.
+Code in this repo includes the generation of a POC what I judge to be the most interesting structure in play for this solution, the **list of notification elements**, and a basic set of test assertions.
 
 Running `npm install`, and then `npm test`, will execute those tests (assuming node is properly set up).
 
@@ -43,3 +43,16 @@ Of course, these would also be ideally linked to a view on a native application 
 
 ---
 This data should probably be stored as *individual result elements*. The only strict requirement is that a service definition is able to return a list of charting data elements, based on queries by date range and by provider. A well factored service should hide the internals of that call.
+
+### Dependencies
+
+---
+There are several dependencies involved.
+* csv upload
+* data store for csv results
+* provider data service
+  * required for appropriate routing of provider notifications
+* (optional, required for prioritization) charting result interpretation service
+  * should accept a charting result with value and patient information, and determine whether a alert should be set for this patient
+* sms service for alerts
+* native application, for secondary alerts and detail view of results
