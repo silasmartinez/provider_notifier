@@ -37,6 +37,41 @@ _Test Results Available_
 * _(3rd patient id): 17 results_
 * _Etc._
 
+The json should be something like:
+```json
+[
+  {
+    "providerId": "1",
+    "patients": [
+      {
+        "patientId": "1234",
+        "resultCount": 1,
+        "resultAlerts": {
+          "minor": 1
+        }
+      },
+      {
+        "patientId": "5678",
+        "resultCount": 2,
+        "resultAlerts": {}
+      }
+    ]
+  },
+  {
+    "providerId": "2",
+    "patients": [
+      {
+        "patientId": "0987",
+        "resultCount": 1,
+        "resultAlerts": {
+          "critical": 1
+        }
+      }
+    ]
+  }
+]
+```
+
 Of course, these would also be ideally linked to a view on a native application where the specifics could be explored, with patients sorted by the same criteria.
 
 ### Charting Data
