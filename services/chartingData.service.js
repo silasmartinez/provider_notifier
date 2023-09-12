@@ -8,6 +8,12 @@ const getChartData = () => {
     },
     {
       patientId: "5678",
+      dataType: "Blood type",
+      dataValue: "A+",
+      date: new Date(),
+    },
+    {
+      patientId: "5678",
       dataType: "Blood pressure",
       dataValue: "120/100 Hg/mm",
       date: new Date(),
